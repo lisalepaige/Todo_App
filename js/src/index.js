@@ -32,6 +32,11 @@ class Note {
 class App {
   constructor() {
     console.log("👊🏼 The Constructor!");
+
+    this.btnAdd = btnAddNote;
+    this.btnAdd.addEventListener("click", this.createNote.bind(this){
+      console.log("button works");
+    });
   
     // HINT🤩
     // clicking the button should work
