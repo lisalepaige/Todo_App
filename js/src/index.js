@@ -6,7 +6,14 @@ class Note {
   
   createElement(title){
     let newNote = document.createElement('div');
+    let NoteP = document.createElement('p');
+    NoteP.innerHTML = title;
+    newNote.appendChild(NoteP);
+
+    let notes = document.querySelector(".notes");
+    notes.appendChild(newNote);
     console.log("testtest");
+    //add(newNote);
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
     
     return newNote;
@@ -15,6 +22,8 @@ class Note {
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
+    
+    console.log("addedDiv");
   }
   
   saveToStorage(){
