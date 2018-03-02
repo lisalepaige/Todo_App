@@ -52,8 +52,10 @@ class App {
    
   createNote(e){
     console.log("button");
+        // this function should create a new note by using the Note() class
 
-    // this function should create a new note by using the Note() class
+        let textvalue = document.getElementById("txtAddNote").value;
+        console.log("textvalue");
     
     // HINT🤩
     // note.add();
