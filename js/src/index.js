@@ -34,9 +34,7 @@ class App {
     console.log("👊🏼 The Constructor!");
 
     this.btnAdd = btnAddNote;
-    this.btnAdd.addEventListener("click", this.createNote.bind(this){
-      console.log("button works");
-    });
+    this.btnAdd.addEventListener("click", this.createNote.bind(this));
   
     // HINT🤩
     // clicking the button should work
@@ -53,6 +51,8 @@ class App {
   }
    
   createNote(e){
+    console.log("button");
+
     // this function should create a new note by using the Note() class
     
     // HINT🤩
