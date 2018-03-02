@@ -1,12 +1,12 @@
 class Note {
   constructor(title) {
     this.title = title;
-    // HINT🤩 this.element = this.createElement(title);
+    this.element = this.createElement(title);
   }
   
   createElement(title){
     let newNote = document.createElement('div');
-    
+    console.log("testtest");
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
     
     return newNote;
@@ -56,9 +56,8 @@ class App {
 
         let textvalue = document.getElementById("txtAddNote").value;
         console.log("textvalue");
+        new Note(textvalue);
     
-    // HINT🤩
-    // note.add();
     // note.saveToStorage();
     // this.reset();
   }
