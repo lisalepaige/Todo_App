@@ -6,6 +6,7 @@ class Note {
   
   createElement(title){
     let newNote = document.createElement('div');
+    newNote.classList.add('card');
     let NoteP = document.createElement('p');
     NoteP.innerHTML = title;
     newNote.appendChild(NoteP);
