@@ -29,14 +29,14 @@ class Note {
     // HINT🤩
     // this function should append the note to the screen somehow
     document.getElementsByClassName(".notes").appendChild(this.element);
-    //console.log("addedDiv");
+    console.log("addedDiv");
   }
   
-  saveToStorage(){
+  saveToStorage(textvalue){
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    saveNotes.push(this.title);
+    saveNotes.push(textvalue);
     localStorage.setItem('notes', JSON.stringify(saveNotes));
     console.log("save");
   
@@ -91,11 +91,11 @@ class App {
   }
    
   createNote(e){
-    console.log("button");
+    //console.log("button");
         // this function should create a new note by using the Note() class
 
         let textvalue = document.getElementById("txtAddNote").value;
-        console.log("textvalue");
+        //console.log("textvalue");
         let note = new Note(textvalue);
         note.saveToStorage(textvalue);
         note.add();
