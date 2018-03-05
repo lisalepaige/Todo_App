@@ -48,7 +48,20 @@ class App {
   constructor() {
     console.log("👊🏼 The Constructor!");
 
-    this.btnAdd = btnAddNote;
+    this.btnAdd = document.getElementById("btnAddNote");
+    this.enterText = document.getElementById("txtAddNote");
+    let enter = this.btnAdd;
+    this.enterText.addEventListener("keyup", function(event)
+    {
+      event.preventDefault();
+
+      if (event.keyCode === 13) {
+        enter.click();
+        console.log("enter");
+      }
+    });
+    
+
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
   
     // HINT🤩
