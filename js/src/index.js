@@ -79,6 +79,13 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+    let loadNotes = JSON.parse(localStorage.getItem('notes'));
+    console.log("loaded notes");
+
+    if(!empty($loadnotes)) 
+    {
+      console.log("not empty");
+    }
 
 
   }
@@ -90,6 +97,7 @@ class App {
         let textvalue = document.getElementById("txtAddNote").value;
         console.log("textvalue");
         let note = new Note(textvalue);
+        note.saveToStorage(textvalue);
         note.add();
         this.reset();
     
