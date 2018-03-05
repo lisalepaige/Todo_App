@@ -20,7 +20,7 @@ class Note {
 
     let notes = document.querySelector(".notes");
     notes.appendChild(newNote);
-    console.log("testtest");
+    //console.log("testtest");
     
     return newNote;
   }
@@ -28,19 +28,26 @@ class Note {
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
-    
-    console.log("addedDiv");
+    document.getElementsByClassName(".notes").appendChild(this.element);
+    //console.log("addedDiv");
   }
   
   saveToStorage(){
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+    saveNotes.push(this.title);
+    localStorage.setItem('notes', JSON.stringify(saveNotes));
+    console.log("save");
+  
   }
   
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+
+
+
   } 
 }
 
@@ -57,7 +64,7 @@ class App {
 
       if (event.keyCode === 13) {
         enter.click();
-        console.log("enter");
+        //console.log("enter");
       }
     });
     
@@ -65,10 +72,6 @@ class App {
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
   
     // HINT🤩
-    // clicking the button should work
-    // pressing the enter key should also work
-    // this.btnAdd = ???
-    // this.btnAdd.addEventListener("click", this.createNote.bind(this));
     // this.loadNotesFromStorage();
   }
   
@@ -76,6 +79,8 @@ class App {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+
+
   }
    
   createNote(e){
@@ -84,19 +89,22 @@ class App {
 
         let textvalue = document.getElementById("txtAddNote").value;
         console.log("textvalue");
-        new Note(textvalue);
+        let note = new Note(textvalue);
+        note.add();
         this.reset();
     
-    // note.saveToStorage();
-    // this.reset();
   }
   
   reset(){
     // this function should reset the form 
     document.getElementById("AddNotes").reset();
-    console.log("reset");
+    //console.log("reset");
   }
   
 }
 
 let app = new App();
+
+let saveNotes = [];
+saveNotes = JSON.parse(localStorage.getItem('notes'));
+console.log(saveNotes);
