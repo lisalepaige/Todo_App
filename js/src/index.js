@@ -7,6 +7,7 @@ class Note {
   createElement(title){
     let newNote = document.createElement('div');
     newNote.classList.add('card');
+
     let NoteP = document.createElement('p');
     NoteP.innerHTML = title;
     newNote.appendChild(NoteP);
@@ -28,7 +29,8 @@ class Note {
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
-    document.getElementsByClassName(".notes").appendChild(this.element);
+    //
+    document.querySelector(".notes").appendChild(this.element);
     console.log("addedDiv");
   }
   
@@ -64,15 +66,14 @@ class App {
 
       if (event.keyCode === 13) {
         enter.click();
-        //console.log("enter");
+        console.log("enter");
       }
     });
     
 
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
-  
-    // HINT🤩
-    // this.loadNotesFromStorage();
+
+    this.loadNotesFromStorage();
   }
   
   loadNotesFromStorage() {
@@ -80,11 +81,15 @@ class App {
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
     let loadNotes = JSON.parse(localStorage.getItem('notes'));
-    console.log("loaded notes");
 
-    if(!empty($loadnotes)) 
+    if( loadNotes !== null) 
     {
-      console.log("not empty");
+      loadNotes.forEach(textvalue => {
+
+      let note = new Note(textvalue);
+      note.add();
+      //console.log("not empty");
+      });
     }
 
 
