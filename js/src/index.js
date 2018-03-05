@@ -11,11 +11,20 @@ class Note {
     NoteP.innerHTML = title;
     newNote.appendChild(NoteP);
 
+
+    let NoteA = document.createElement('a');
+    NoteA.innerHTML = "Remove";
+    NoteA.href = "#";
+    NoteA.classList.add('card-remove');
+    newNote.appendChild(NoteA);
+
     let notes = document.querySelector(".notes");
     notes.appendChild(newNote);
     console.log("testtest");
-    //add(newNote);
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    
+    //let linkRemove = document.querySelector(".card-remove");
+    //linkRemove.addEventListener('click', this.remove.bind(newNote));
+    //console.log("link");
     
     return newNote;
   }
