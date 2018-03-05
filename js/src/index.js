@@ -22,10 +22,6 @@ class Note {
     notes.appendChild(newNote);
     console.log("testtest");
     
-    //let linkRemove = document.querySelector(".card-remove");
-    //linkRemove.addEventListener('click', this.remove.bind(newNote));
-    //console.log("link");
-    
     return newNote;
   }
   
@@ -76,6 +72,7 @@ class App {
         let textvalue = document.getElementById("txtAddNote").value;
         console.log("textvalue");
         new Note(textvalue);
+        this.reset();
     
     // note.saveToStorage();
     // this.reset();
@@ -83,6 +80,8 @@ class App {
   
   reset(){
     // this function should reset the form 
+    document.getElementById("AddNotes").reset();
+    console.log("reset");
   }
   
 }
