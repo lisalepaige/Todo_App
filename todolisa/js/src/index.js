@@ -7,7 +7,6 @@ class Note {
   createElement(title){
     let newNote = document.createElement('div');
     newNote.classList.add('card');
-    newNote.title=title; 
 
     let NoteP = document.createElement('p');
     NoteP.innerHTML = title;
@@ -39,7 +38,6 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-      console.log(saveNotes); 
     saveNotes.push(textvalue);
     localStorage.setItem('notes', JSON.stringify(saveNotes));
     //console.log("save");
@@ -49,16 +47,15 @@ class Note {
   remove(newNote){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-   //console.log(saveNotes);
-    let i = saveNotes.indexOf(this.title);
-    //console.log(this.title);
-    //console.log(i);
+   console.log(saveNotes);
+    let i = saveNotes.indexOf('${this.title}');
+    console.log(saveNotes.indexOf('${this.title}'));
 
     if (i > -1 )
     {
       saveNotes.splice(i, 1);
       localStorage.setItem('notes', JSON.stringify(saveNotes));
-     // console.log(i);
+      console.log(i);
     }
 
 
@@ -74,8 +71,6 @@ class Note {
 class App {
   constructor() {
     //console.log("👊🏼 The Constructor!");
-      
-      this.loadNotesFromStorage();
 
     console.log(localStorage); 
 
@@ -92,25 +87,20 @@ class App {
       }
     });
     
-       
 
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
 
-   
+    this.loadNotesFromStorage();
   }
   
   loadNotesFromStorage() {
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
-    //console.log("savenotes: " + saveNotes); 
+    //console.log(saveNotes); 
     let loadNotes = JSON.parse(localStorage.getItem('notes'));
 
-    //console.log("loadnotes: " + loadNotes); 
-      
-      //saveNotes = loadNotes; 
-      
-      //console.log("savenotes: " + saveNotes); 
+    saveNotes = loadNotes; 
 
     if( loadNotes !== null) 
     {
@@ -147,7 +137,7 @@ class App {
 }
 
 let saveNotes = [];
-saveNotes = JSON.parse(localStorage.getItem('notes'));
+//saveNotes = JSON.parse(localStorage.getItem('notes'));
 
 
 let app = new App();
