@@ -18,6 +18,7 @@ class Note {
     NoteA.href = "#";
     NoteA.classList.add('card-remove');
     newNote.appendChild(NoteA);
+    NoteA.addEventListener("click", this.remove.bind(newNote));
 
     let notes = document.querySelector(".notes");
     notes.appendChild(newNote);
@@ -47,6 +48,19 @@ class Note {
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+    let location = saveNotes.indexOf('${this.title}');
+
+    if (location >= -1 )
+    {
+      saveNotes.splice(location, 1);
+      localStorage.setItem('cards', JSON.stringify(saveNotes));
+    }
+
+    this.style.display = "none";
+    this.style.visibility = "hidden";
+
+    console.log("removing");
+
 
 
 
